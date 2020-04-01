@@ -51,6 +51,7 @@ func (l *FileDownloadHandler) serveDownload(w http.ResponseWriter, req *http.Req
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Transfer-Encoding", "chunked")
 	w.Header().Set("Connection", "Keep-Alive")
+	w.Header().Set("Cache-Control", "max-age=60")
 
 	if strings.HasSuffix(curFilePath, ".mpd") {
 		w.Header().Set("Content-Type", "application/dash+xml")
