@@ -233,7 +233,7 @@ func (l *DashPlayHandler) servePlayer(w http.ResponseWriter, req *http.Request) 
 			function downloadUsingFetch(url,context,callback)
 			{
 			var totalBytes = 0;
-			fetch(url).then(function(response) {
+			fetch(url, {keepalive: true}).then(function(response) {
 
 						if(!response.ok) {
 							log(response.status + " received on segment load, so waiting 100 ms and then retrying seg " + context);
